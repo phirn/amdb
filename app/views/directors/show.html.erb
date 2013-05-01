@@ -10,4 +10,19 @@
   <%= @director.dob %>
 </p>
 
+<p>
+  <b>List of Films:</b>
+  <ul>
+    <% @director.movies.each do |movie| %>
+      <li><%= movie.title %> (<%= movie.year %>)</li>
+    <% end %>
+  </ul>
+</p>
+
+
+
+
+
+
+
 
