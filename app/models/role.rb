@@ -3,10 +3,10 @@ class Role < ActiveRecord::Base
   # A role belongs to one movie
 
   def actor
-    # return the Actor object this role belongs to
+    return Actor.find_by_id(self.actor_id)
   end
 
   def movie
-    # return the Movie object this role belongs to
+    return Movie.find_by_id(self.movie_id)
   end
 end
