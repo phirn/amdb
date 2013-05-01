@@ -10,4 +10,17 @@
   <%= @actor.dob %>
 </p>
 
+<p>
+  <b>Roles played:</b>
+  <ul>
+    <% @actor.roles.each do |role| %>
+      <li><%= role.character_name %></li>
+    <% end %>
+  </ul>
+</p>
+
+
+
+
+
 

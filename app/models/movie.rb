@@ -7,6 +7,6 @@ class Movie < ActiveRecord::Base
   end
 
   def roles
-    # return an array of all the roles that belong to this movie
+    return Role.where(:movie_id => self.id)
   end
 end

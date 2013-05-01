@@ -15,4 +15,18 @@
   <%= @movie.director.name %>
 </p>
 
+<p>
+  <b>Roles in this movie:</b>
+  <ul>
+    <% @movie.roles.each do |role| %>
+      <li><%= role.character_name %></li>
+    <% end %>
+  </ul>
+</p>
+
+
+
+
+
+
 
