@@ -2,6 +2,9 @@ class Movie < ActiveRecord::Base
   belongs_to :director
   has_many :roles
 
+  validates :title, presence: true
+  validates :director, presence: true
+
   # def director
   #   return Director.find_by_id(self.director_id)
   # end

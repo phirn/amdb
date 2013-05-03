@@ -1,5 +1,6 @@
 <h1>Editing User #<%= @user.id %></h1>
 
+<p><%= notice %></p>
 
 <%= form_tag(user_url(@user), method: 'put') do %>
 
@@ -8,7 +9,7 @@
     <%= text_field_tag :username, @user.username %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update User" %>
   </div>
