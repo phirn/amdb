@@ -18,6 +18,15 @@
     <% end %>
   </ul>
 </p>
+<p>
+  <b>Filmography:</b>
+  <ul>
+    <% @actor.movies.each do |movie| %>
+      <li><%= movie.title %></li>
+    <% end %>
+  </ul>
+</p>
+
 
 
 
