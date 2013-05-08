@@ -1,4 +1,9 @@
 Amdb::Application.routes.draw do
+
+  get '/sessions/new' => 'Sessions#new'
+  post '/sessions' => 'Sessions#create'
+  delete '/sessions' => 'Sessions#destroy'
+
   # Routes for the Vote resource:
   # CREATE
   get '/votes/new', controller: 'votes', action: 'new', as: 'new_vote'

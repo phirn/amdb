@@ -1,0 +1,6 @@
+<h1>Sign In</h1>
+
+<%= form_tag '/sessions' do %>
+  <%= label_tag :username, "Who are you?" %>
+  <%= text_field_tag :username %>
+<% end %>

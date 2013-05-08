@@ -14,7 +14,14 @@
     <%= link_to "Actors", actors_url %> |
     <%= link_to "Users", users_url %> |
     <%= link_to "Votes", votes_url %>
+    <%= link_to "Sign In", '/sessions/new' %>
   </nav>
+
+  <% if session[:user_id].present? %>
+    <p>Welcome back, <%= User.find(session[:user_id]).username %></p>
+  <% end %>
+
+  <p><%= notice %></p>
 
   <%= yield %>
 
