@@ -1,4 +1,13 @@
 class VotesController < ApplicationController
+  before_filter :authorize_user, only: [:edit, :update, :destroy]
+
+  def authorize_user
+    @vote = Vote.find(params[:id])
+
+    if @vote.user.id != session[:user_id]
+      redirect_to votes_url, notice: "Nice try!"
+    end
+  end
 
   def index
     @votes = Vote.all
