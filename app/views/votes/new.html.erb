@@ -3,17 +3,12 @@
 
 <%= form_tag(votes_url, method: 'post') do %>
 
+  <%= hidden_field_tag :user_id, session[:user_id] %>
 
   <div>
     <%= label_tag :movie_id %><br />
     <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
   </div>
-
-    <div>
-    <%= label_tag :user_id %><br />
-    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :username) %>
-  </div>
-
 
   <div>
     <%= submit_tag "Create Vote" %>

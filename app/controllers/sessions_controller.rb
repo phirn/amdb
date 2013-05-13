@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     u = User.find_by_username(params[:username])
 
-    if u.present?
+    if u.present? && u.authenticate(params[:password])
       session[:user_id] = u.id
       redirect_to movies_url, notice: 'Signed in successfully.'
     else
@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    reset_session
+    redirect_to root_url, notice: "Signed out successfully."
   end
 end
