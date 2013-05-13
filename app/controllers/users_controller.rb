@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :authorize_user, only: [:edit, :update, :destroy]
+  before_filter :authorize_user, only: [:show, :edit, :update, :destroy]
 
   def authorize_user
     @user = User.find(params[:id])
-    if @user.id != session[:user_id]
+    if @user != current_user
       redirect_to users_url, notice: "Nice try."
     end
   end
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
   end
 
   def new
@@ -34,11 +33,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
   end
 
   def update
-    @user = User.find_by_id(params[:id])
     @user.username = params[:username]
 
     if @user.save
@@ -49,7 +46,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
     @user.destroy
     redirect_to users_url
   end

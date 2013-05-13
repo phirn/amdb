@@ -1,11 +1,17 @@
 class RolesController < ApplicationController
 
+  before_filter :find_role, except: [:index, :new, :create]
+
+  def find_role
+    @role = Role.find_by_id(params[:id])
+  end
+
   def index
     @roles = Role.all
   end
 
   def show
-    @role = Role.find_by_id(params[:id])
+
   end
 
   def new
@@ -17,7 +23,7 @@ class RolesController < ApplicationController
     @role.character_name = params[:character_name]
     @role.actor_id = params[:actor_id]
     @role.movie_id = params[:movie_id]
-    
+
     if @role.save
             redirect_to roles_url
           else
@@ -26,15 +32,13 @@ class RolesController < ApplicationController
   end
 
   def edit
-    @role = Role.find_by_id(params[:id])
   end
 
   def update
-    @role = Role.find_by_id(params[:id])
     @role.character_name = params[:character_name]
     @role.actor_id = params[:actor_id]
     @role.movie_id = params[:movie_id]
-    
+
     if @role.save
             redirect_to roles_url
           else
@@ -43,8 +47,7 @@ class RolesController < ApplicationController
   end
 
   def destroy
-    @role = Role.find_by_id(params[:id])
     @role.destroy
-        redirect_to roles_url
-      end
+    redirect_to roles_url
+  end
 end
