@@ -3,7 +3,7 @@
 <%= form_tag sessions_url do %>
   <div>
     <%= label_tag :username, "Who are you?" %>
-    <%= text_field_tag :username %>
+    <%= text_field_tag :username, @user.username %>
   </div>
 
   <div>

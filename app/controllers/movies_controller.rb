@@ -2,10 +2,25 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+      format.json do
+        render json: @movies
+      end
+    end
   end
 
   def show
     @movie = Movie.find_by_id(params[:id])
+
+    respond_to do |format|
+      format.html { render 'show' }
+      format.json { render json: @movie }
+    end
+
   end
 
   def new
