@@ -5,8 +5,8 @@ class Vote < ActiveRecord::Base
   validates :user, presence: true
   validates :movie, presence: true
 
-  validates :user_id, uniqueness: { scope: :movie_id}
-
+  validates :user_id, uniqueness: { scope: :movie_id, message: "has already voted for that movie."
+}
   validate :user_cannot_vote_more_than_three_times
 
   def user_cannot_vote_more_than_three_times
