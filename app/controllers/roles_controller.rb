@@ -25,8 +25,8 @@ class RolesController < ApplicationController
     @role.movie_id = params[:movie_id]
 
     if @role.save
-            redirect_to roles_url
-          else
+      redirect_to roles_url
+    else
       render 'new'
     end
   end
@@ -40,8 +40,8 @@ class RolesController < ApplicationController
     @role.movie_id = params[:movie_id]
 
     if @role.save
-            redirect_to roles_url
-          else
+      redirect_to roles_url
+    else
       render 'edit'
     end
   end
