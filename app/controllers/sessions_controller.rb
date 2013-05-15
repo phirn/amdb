@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = u.id
       redirect_to movies_url, notice: 'Signed in successfully.'
     else
-      redirect_to 'http://localhost:3000/sessions/new', notice: 'Nice try.'
+      redirect_to new_session_url, notice: 'Nice try.'
     end
   end
 
