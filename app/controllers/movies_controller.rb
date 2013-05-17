@@ -43,9 +43,8 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find_by_id(params[:id])
-    @movie.title = params[:title]
-    @movie.year = params[:year]
-    @movie.director_id = params[:director_id]
+
+    @movie.update_attributes(params[:movie])
 
     if @movie.save
       redirect_to @movie

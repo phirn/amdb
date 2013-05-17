@@ -8,26 +8,20 @@
   </ul>
 <% end %>
 
-<%= form_tag(movie_url(@movie), method: 'put') do %>
-
+<%= form_for @movie do |f| %>
   <div>
-    <%= label_tag :title %><br />
-    <%= text_field_tag :title, @movie.title %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
-
   <div>
-    <%= label_tag :year %><br />
-    <%= number_field_tag :year, @movie.year %>
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
   </div>
-
   <div>
-    <%= label_tag :director_id %><br />
-    <%= number_field_tag :director_id, @movie.director_id %>
+    <%= f.label :director_id %><br />
+    <%= f.collection_select :director_id, Director.all, :id, :name %>
   </div>
-
-
   <div>
-    <%= submit_tag "Update Movie" %>
+    <%= f.submit %>
   </div>
-
 <% end %>
