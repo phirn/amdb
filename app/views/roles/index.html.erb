@@ -21,9 +21,9 @@
       <td><%= role.actor.try(:name) %></td>
       <td><%= role.movie.title %></td>
 
-      <td><%= link_to 'Show', role_url(role) %></td>
+      <td><%= link_to 'Show', role %></td>
       <td><%= link_to 'Edit', edit_role_url(role) %></td>
-      <td><%= link_to 'Destroy', role_url(role), method: 'delete', data: { confirm: "Do you really want to delete this role?" } %></td>
+      <td><%= link_to 'Destroy', role, method: 'delete', data: { confirm: "Do you really want to delete this role?" } %></td>
 
     </tr>
   <% end %>

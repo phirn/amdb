@@ -32,9 +32,9 @@
           <%= submit_tag "Upvote" %>
         <% end %>
       </td>
-      <td><%= link_to 'Show', movie_url(movie), class: 'btn btn-primary' %></td>
+      <td><%= link_to 'Show', movie, class: 'btn btn-primary' %></td>
       <td><%= link_to 'Edit', edit_movie_url(movie), class: 'btn btn-warning' %></td>
-      <td><%= link_to 'Destroy', movie_url(movie), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
+      <td><%= link_to 'Destroy', movie, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
 
     </tr>
   <% end %>

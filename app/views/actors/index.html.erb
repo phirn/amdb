@@ -19,9 +19,9 @@
       <td><%= actor.name %></td>
       <td><%= actor.dob %></td>
 
-      <td><%= link_to 'Show', actor_url(actor) %></td>
+      <td><%= link_to 'Show', actor %></td>
       <td><%= link_to 'Edit', edit_actor_url(actor) %></td>
-      <td><%= link_to 'Destroy', actor_url(actor), method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>
+      <td><%= link_to 'Destroy', actor, method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>
 
     </tr>
   <% end %>
