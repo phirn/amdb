@@ -29,7 +29,7 @@ class DirectorsController < ApplicationController
   def update
     @director = Director.find_by_id(params[:id])
     @director.name = params[:name]
-    @director.dob = params[:dob]
+    @director.dob = Date.parse(params[:dob])
 
     if @director.save
       redirect_to directors_url

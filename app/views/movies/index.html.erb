@@ -26,10 +26,11 @@
       <td><%= movie.director.name %></td>
       <td><%= movie.votes.count %></td>
       <td>
-        <%= form_tag votes_url do %>
-          <%= hidden_field_tag :user_id, session[:user_id] %>
-          <%= hidden_field_tag :movie_id, movie.id %>
-          <%= submit_tag "Upvote", class: 'btn btn-success' %>
+        <% vote = Vote.new(user_id: session[:user_id], movie_id: movie.id) %>
+        <%= form_for vote do |f| %>
+          <%= f.hidden_field :user_id %>
+          <%= f.hidden_field :movie_id %>
+          <%= f.submit "Upvote", class: 'btn btn-success' %>
         <% end %>
       </td>
       <td><%= link_to 'Show', movie, class: 'btn btn-primary' %></td>
