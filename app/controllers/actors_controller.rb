@@ -13,9 +13,7 @@ class ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.new
-    @actor.name = params[:name]
-    @actor.dob = params[:dob]
+    @actor = Actor.new(params[:actor])
 
     if @actor.save
       redirect_to actors_url

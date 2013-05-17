@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
     @movie.director_id = params[:director_id]
 
     if @movie.save
-      redirect_to movies_url
+      redirect_to @movie
     else
       render 'edit'
     end
