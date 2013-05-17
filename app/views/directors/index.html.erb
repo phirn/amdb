@@ -1,3 +1,11 @@
+<% zebra = Director.first %>
+
+<a href="http://localhost:3000/directors/<%= zebra.id %>">Show</a>
+<%= link_to "Show", "http://localhost:3000/directors/#{zebra.id}" %>
+<%= link_to "Show", director_url(zebra.id) %>
+<%= link_to "Show", director_url(zebra) %>
+<%= link_to "Show", zebra %>
+
 <h1>Directors</h1>
 
 <p><%= link_to 'Add a New Director', new_director_url %></p>
@@ -19,9 +27,9 @@
       <td><%= director.name %></td>
       <td><%= director.dob %></td>
 
-      <td><%= link_to 'Show', director_url(director) %></td>
+      <td><%= link_to 'Show', director %></td>
       <td><%= link_to 'Edit', edit_director_url(director) %></td>
-      <td><%= link_to 'Destroy', director_url(director), method: 'delete', data: { confirm: "Do you really want to delete this director?" } %></td>
+      <td><%= link_to 'Destroy', director, method: 'delete', data: { confirm: "Do you really want to delete this director?" } %></td>
 
     </tr>
   <% end %>

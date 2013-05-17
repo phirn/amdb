@@ -14,7 +14,7 @@
   <b>List of Films:</b>
   <ul>
     <% @director.movies.each do |movie| %>
-      <li><%= movie.title %> (<%= movie.year %>)</li>
+      <li><%= link_to movie.title, movie %> (<%= movie.year %>)</li>
     <% end %>
   </ul>
 </p>
