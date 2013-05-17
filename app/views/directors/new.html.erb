@@ -8,21 +8,16 @@
   </ul>
 <% end %>
 
-<%= form_tag(directors_url, method: 'post') do %>
-
-
+<%= form_for @director do |f| %>
   <div>
-    <%= label_tag :name %><br />
-    <%= text_field_tag :name %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
-
-    <div>
-    <%= label_tag :dob %><br />
-    <%= text_field_tag :dob %>
-  </div>
-
-
   <div>
-    <%= submit_tag "Create Director" %>
+    <%= f.label :dob %><br />
+    <%= f.text_field :dob %>
+  </div>
+  <div>
+    <%= submit_tag %>
   </div>
 <% end %>

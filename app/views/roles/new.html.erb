@@ -8,26 +8,20 @@
   </ul>
 <% end %>
 
-<%= form_tag(roles_url, method: 'post') do %>
-
-
+<%= form_for @role do |f| %>
   <div>
-    <%= label_tag :character_name %><br />
-    <%= text_field_tag :character_name %>
+    <%= f.label :character_name %><br />
+    <%= f.text_field :character_name %>
   </div>
-
   <div>
-    <%= label_tag :actor_id %><br />
-    <%= select_tag :actor_id, options_from_collection_for_select(Actor.all, :id, :name) %>
+    <%= f.label :actor_id %><br />
+    <%= f.collection_select :actor_id, Actor.all, :id, :name %>
   </div>
-
   <div>
-    <%= label_tag :movie_id %><br />
-    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
+    <%= f.label :movie_id %><br />
+    <%= f.collection_select :movie_id, Movie.all, :id, :title %>
   </div>
-
-
   <div>
-    <%= submit_tag "Create Role" %>
+    <%= f.submit %>
   </div>
 <% end %>

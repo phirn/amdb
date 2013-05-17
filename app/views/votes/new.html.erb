@@ -8,16 +8,13 @@
   </ul>
 <% end %>
 
-<%= form_tag(votes_url, method: 'post') do %>
-
-  <%= hidden_field_tag :user_id, current_user.id %>
-
+<%= form_for @vote do |f| %>
+  <%= f.hidden_field :user_id %>
   <div>
-    <%= label_tag :movie_id %><br />
-    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
+    <%= f.label :movie_id %><br />
+    <%= f.collection_select :movie_id, Movie.all, :id, :title %>
   </div>
-
   <div>
-    <%= submit_tag "Create Vote" %>
+    <%= f.submit "Create Vote" %>
   </div>
 <% end %>

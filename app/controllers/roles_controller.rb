@@ -19,10 +19,7 @@ class RolesController < ApplicationController
   end
 
   def create
-    @role = Role.new
-    @role.character_name = params[:character_name]
-    @role.actor_id = params[:actor_id]
-    @role.movie_id = params[:movie_id]
+    @role = Role.new(params[:role])
 
     if @role.save
       redirect_to roles_url

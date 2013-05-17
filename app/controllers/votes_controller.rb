@@ -26,12 +26,11 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
+    @vote.user_id = session[:user_id]
   end
 
   def create
-    @vote = Vote.new
-    @vote.movie_id = params[:movie_id]
-    @vote.user_id = params[:user_id]
+    @vote = Vote.new(params[:vote])
 
     if @vote.save
       redirect_to movies_url

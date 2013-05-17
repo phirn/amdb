@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  attr_accessible :title, :year, :director_id
+
   belongs_to :director
   has_many :roles
   has_many :actors, :through => :roles

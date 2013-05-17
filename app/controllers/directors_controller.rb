@@ -13,9 +13,7 @@ class DirectorsController < ApplicationController
   end
 
   def create
-    @director = Director.new
-    @director.name = params[:name]
-    @director.dob = params[:dob]
+    @director = Director.new(params[:director])
 
     if @director.save
       redirect_to directors_url

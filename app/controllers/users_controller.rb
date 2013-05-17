@@ -20,10 +20,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.username = params[:username]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
+    @user = User.new(params[:user])
 
     if @user.save
       redirect_to users_url, :notice => "User created."
