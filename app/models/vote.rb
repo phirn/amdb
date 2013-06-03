@@ -11,7 +11,8 @@ class Vote < ActiveRecord::Base
 }
   validate :user_cannot_vote_more_than_three_times
 
-  after_create :bump_the_movies_number_of_votes
+  after_save :bump_the_movies_number_of_votes
+  after_destroy :reduce_the_movies_number_of_votes
 
   def bump_the_movies_number_of_votes
     m = self.movie
@@ -19,6 +20,11 @@ class Vote < ActiveRecord::Base
     m.save
   end
 
+  def reduce_the_movies_number_of_votes
+    m = self.movie
+    m.number_of_votes -= 1
+    m.save
+  end
 
 
   def user_cannot_vote_more_than_three_times
