@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
   has_many :votes
 
   validates :title, presence: true
-  validates :year, presence: true
+  # validates :year, presence: true
 
   # def director
   #   return Director.find_by_id(self.director_id)

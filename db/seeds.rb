@@ -40,6 +40,35 @@ end
 puts "There are now #{Movie.count} rows in the movies table."
 
 
+movies = ["sandlot kids",
+"transformers",
+"back to the future",
+"spiderman",
+"old school",
+"american history x",
+"star wars",
+"superman",
+"batman",
+"star trek",
+"x men",
+"the simpsons",
+"terminator",
+"indiana jones",
+"battlestar galactica",
+"speed racer",
+"strawberry shortcake",
+"toy story",
+"harry potter",
+"gi joe",
+"wonder woman",
+"wizard of oz",
+"spongebob"]
+
+movies.each do |m|
+  Movie.create title: m.titleize
+end
+
+
 actor_hashes = [
   { :name => "Christian Bale", :dob => "30/01/1974" },
   { :name => "Al Pacino", :dob => "25/04/1940" },
