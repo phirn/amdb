@@ -4,7 +4,7 @@ class Movie < ActiveRecord::Base
   belongs_to :director
   has_many :roles, :dependent => :destroy
   has_many :actors, :through => :roles
-  has_many :votes
+  has_many :votes, :dependent => :destroy
 
   validates :title, presence: true
   # validates :year, presence: true

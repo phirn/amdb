@@ -5,15 +5,14 @@
 
   <div>
     <%= label_tag :movie_id %><br />
-    <%= number_field_tag :movie_id, @vote.movie_id %>
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
   </div>
 
   <div>
-    <%= label_tag :user_id %><br />
-    <%= number_field_tag :user_id, @vote.user_id %>
+    <%= hidden_field_tag :user_id, session[:user_id] %><br />
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Vote" %>
   </div>

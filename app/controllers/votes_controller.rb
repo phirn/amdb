@@ -52,8 +52,6 @@ class VotesController < ApplicationController
     @vote.user_id = params[:user_id]
 
     if @vote.save
-      original.number_of_votes -= 1
-      original.save
       redirect_to votes_url
     else
       render 'edit'
