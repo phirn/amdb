@@ -12,7 +12,7 @@
 
 <p>
   <b>Director:</b>
-  <%= @movie.director.name %>
+  <%= @movie.director.try(:name) %>
 </p>
 
 <p>

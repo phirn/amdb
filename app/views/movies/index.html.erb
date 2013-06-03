@@ -23,7 +23,8 @@
     <tr>
       <td><%= movie.title %></td>
       <td><%= movie.year %></td>
-      <td><%= movie.director.name %></td>
+      <td><%= movie.director.try(:name) %>
+      </td>
       <td><%= movie.votes.count %></td>
       <td>
         <% vote = Vote.new(user_id: session[:user_id], movie_id: movie.id) %>
