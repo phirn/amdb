@@ -11,6 +11,16 @@ class Vote < ActiveRecord::Base
 }
   validate :user_cannot_vote_more_than_three_times
 
+  after_create :bump_the_movies_number_of_votes
+
+  def bump_the_movies_number_of_votes
+    m = self.movie
+    m.number_of_votes += 1
+    m.save
+  end
+
+
+
   def user_cannot_vote_more_than_three_times
     if self.user.votes.count >= 3
       errors.add(:user_id, "has already voted three times")
